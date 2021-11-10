@@ -15,12 +15,13 @@ class CreateCoursesTable extends Migration
     {
         if(Schema::hasTable('courses')) return; 
         Schema::create('courses', function (Blueprint $table) {
-            $table->primary('id');
+         //   $table->integer('id')->primary();
+         $table->increments('id');
             $table->string('title');
             $table->text('description');
             $table->integer('values');
             $table->integer('teacher_id')->unsigned();
-            $table->foreign('teacher_id')->references('id')->on('Teachers');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->timestamps();
         });
     }

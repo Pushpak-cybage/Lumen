@@ -13,8 +13,14 @@ class CreateCourseStudentsTable extends Migration
      */
     public function up()
     {
+        if(Schema::hasTable('course__students')) return; 
         Schema::create('course__students', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('course_id')->unsigned();
+            $table->integer('student_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('courses');
+          //  $table->integer('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });
     }
@@ -29,3 +35,6 @@ class CreateCourseStudentsTable extends Migration
         Schema::dropIfExists('course__students');
     }
 }
+   //id(auto incriment),
+   // course_id (refernces id of courses table),
+   //  student_id(refernces id of students table)
