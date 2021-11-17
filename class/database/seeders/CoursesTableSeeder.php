@@ -9,11 +9,7 @@ use Faker\Factory as Faker;
 
 class CoursesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         $faker = Faker::create();
@@ -26,8 +22,8 @@ class CoursesTableSeeder extends Seeder
             DB::table('courses')->insert([
             'title' => $faker->title,
             'description' => $faker->sentence(6),
-           'value'=> $faker->numerify('#####'),
-           'teacher_id'=>array_rand($t_id)
+             'value'=> $faker->numerify('#####'),
+             'teacher_id'=>array_rand($t_id)
             ]);
         }
     }

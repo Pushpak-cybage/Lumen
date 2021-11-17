@@ -7,11 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 class TeacherTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+   
     public function run()
     {
         DB::table('teachers')->delete();

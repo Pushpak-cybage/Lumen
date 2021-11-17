@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateApiKeysTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+ 
     public function up()
     {
         if(Schema::hasTable('api_keys')) return; 
@@ -23,11 +19,7 @@ class CreateApiKeysTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+   
     public function down()
     {
         Schema::dropIfExists('api_keys');

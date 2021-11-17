@@ -9,11 +9,7 @@ use App\Models\Users;
 use App\Models\api_keys;
 class ApiKeysTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         DB::table('api_keys')->delete();

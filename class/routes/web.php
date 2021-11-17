@@ -1,19 +1,19 @@
 <?php
-
-/** @var \Laravel\Lumen\Routing\Router $router */
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
 $router->get('/', function () use ($router) {
-    //return $router->app->version();
+   
     return "Hello from Lumen side";
+});
+
+$router->get('Validate/{id}',['middleware'=>'CheckUser','uses'=>'Controller@show']);
+
+
+ $router->group(['middleware' => ['UserPermission:200']], function () use ($router) 
+ {
+    $router->get('/teachers', '\App\Http\Controllers\Controller@show1');
+    
+    $router->get('/courses', '\App\Http\Controllers\CourseController@index');
+    $router->get('/courses/{id}', '\App\Http\Controllers\CourseController@show11'); 
+    $router->get('/teachers', '\App\Http\Controllers\TeacherController@index');
+    $router->get('/teachers/{id}', '\App\Http\Controllers\CourseController@show11'); 
+    $router->post('/teachers', '\App\Http\Controllers\TeacherController@store'); 
 });

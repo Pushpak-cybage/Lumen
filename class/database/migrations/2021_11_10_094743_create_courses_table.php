@@ -15,7 +15,7 @@ class CreateCoursesTable extends Migration
     {
         if(Schema::hasTable('courses')) return; 
         Schema::create('courses', function (Blueprint $table) {
-         //   $table->integer('id')->primary();
+         
          $table->increments('id');
             $table->string('title');
             $table->text('description');
@@ -26,11 +26,7 @@ class CreateCoursesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('courses');
